@@ -6,11 +6,11 @@ class MyHash
   end
 
   def [](key)
-    ( @entries.reverse.detect { |entry| entry.key == key } ).value
+    ( @entries.detect { |entry| entry.key == key } ).value
   end
 
   def []=(key, value)
-    @entries << HashEntry.new(key, value)
+    found_entry = @entries.detect() { |entry| entry.key == key }
+    found_entry == nil ? @entries.push(HashEntry.new(key, value)) : found_entry.value = value
   end
-
 end
