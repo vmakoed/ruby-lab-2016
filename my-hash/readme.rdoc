@@ -1,0 +1,3 @@
+= my-hash
+
+Ruby Hash emulation. Working demo and benchmark report can be found in _/bin_ folder.
