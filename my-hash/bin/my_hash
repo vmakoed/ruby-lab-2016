@@ -1,0 +1,13 @@
+$LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
+require 'my_hash'
+
+hash_object = MyHash.new
+hash_object[:apple] = 5
+hash_object[:orange] = 3
+
+puts hash_object[:apple]
+puts hash_object[:orange]
+
+hash_object[:apple] = 6
+
+puts hash_object[:apple]
