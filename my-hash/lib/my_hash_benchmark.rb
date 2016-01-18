@@ -1,6 +1,4 @@
-require 'active_support/hash_with_indifferent_access' # for HashWithIndifferentAccess class
 require 'benchmark/ips'
-
 require 'my_hash_benchmark/hash_functions_for_benchmark'
 
 module MyHashBenchmark

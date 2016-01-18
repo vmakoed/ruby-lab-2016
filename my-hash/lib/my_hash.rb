@@ -6,7 +6,8 @@ class MyHash
   end
 
   def [](key)
-    ( @entries.detect { |entry| entry.key == key } ).value
+    found_entry = @entries.detect { |entry| entry.key == key }
+    found_entry == nil ? nil : found_entry.value
   end
 
   def []=(key, value)

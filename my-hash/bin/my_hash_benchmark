@@ -4,9 +4,6 @@ require 'my_hash_benchmark'
 
 keys_and_values = { a: 1, b: 2, c: 3 }
 
-class MyHash < HashWithIndifferentAccess
-end
-
 puts '===== Assignment benchmark: ====='
 MyHashBenchmark.execute_assignment_benchmark(keys_and_values)
 puts '===== Retrieval benchmark: ====='
