@@ -5,5 +5,4 @@ class HashEntry
     @key = key
     @value = value
   end
-
 end

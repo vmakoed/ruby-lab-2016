@@ -11,5 +11,3 @@ puts '===== Assignment benchmark: ====='
 MyHashBenchmark.execute_assignment_benchmark(keys_and_values)
 puts '===== Retrieval benchmark: ====='
 MyHashBenchmark.execute_retrieval_benchmark(keys_and_values)
-
-
