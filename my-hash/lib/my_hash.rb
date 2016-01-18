@@ -38,4 +38,13 @@ class MyHash
   def clear
     @entries = []
   end
+
+  def eql?(hash_to_compare)
+    @entries.each do |entry|
+      if self[entry.key] != hash_to_compare[entry.key]
+        return false
+      end
+    end
+    true
+  end
 end
