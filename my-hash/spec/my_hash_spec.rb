@@ -102,4 +102,46 @@ describe MyHash do
       expect(hash.empty?).to be false
     end
   end
+
+  describe 'eql?' do
+    let (:hash_to_compare) { MyHash.new }
+
+    before do
+      hash.keys.each { |key| hash_to_compare[key] = hash[key] }
+    end
+
+    it 'returns true if hashes are equal' do
+      expect(hash.eql?(hash_to_compare)).to be true
+    end
+
+    it 'returns false if compared hash is of wrong type' do
+      expect(hash.eql?('string')).to be false
+      expect(hash.eql?(1)).to be false
+      expect(hash.eql?( { apple: 1, banana: 2, cherry: 3 } )).to be false
+    end
+
+    it 'returns false if hashes have different sizes' do
+      hash_to_compare[:grapefruit] = 4
+      expect(hash.eql?(hash_to_compare)).to be false
+    end
+
+    it 'returns false if hashes have same keys but different values' do
+      hash_to_compare[:apple] = 0
+      expect(hash.eql?(hash_to_compare)).to be false
+    end
+
+    it 'returns false if hashes have same values but different keys' do
+      hash_to_compare.clear
+      hash_to_compare[:apple] = 1
+      hash_to_compare[:banana] = 2
+      hash_to_compare[:coconut] = 3
+      expect(hash.eql?(hash_to_compare)).to be false
+    end
+
+    it 'returns false if hashes have same keys and values but different pairs' do
+      hash_to_compare[:apple] = 2
+      hash_to_compare[:banana] = 1
+      expect(hash.eql?(hash_to_compare)).to be false
+    end
+  end
 end
