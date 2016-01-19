@@ -9,9 +9,7 @@ hash_a[:apple] = 1
 hash_a[:banana] = 2
 hash_a[:cherry] = 3
 puts 'hash_a created'
-puts "hash_a[:apple] = #{hash_a[:apple]}"
-puts "hash_a[:banana] = #{hash_a[:banana]}"
-puts "hash_a[:cherry] = #{hash_a[:cherry]}"
+puts "hash_a: #{hash_a}"
 puts "hash_a keys: #{hash_a.keys}"
 puts "hash_a values: #{hash_a.values}"
 puts "hash_a size: #{hash_a.size}"
@@ -22,9 +20,7 @@ hash_b[:apple] = 1
 hash_b[:banana] = 2
 hash_b[:cherry] = 3
 puts 'hash_b created'
-puts "hash_b[:apple] = #{hash_b[:apple]}"
-puts "hash_b[:banana] = #{hash_b[:banana]}"
-puts "hash_b[:cherry] = #{hash_b[:cherry]}"
+puts "hash_b: #{hash_b}"
 puts "hash_a equals hash_b?: #{hash_a.eql?(hash_b)}"
 puts separator
 

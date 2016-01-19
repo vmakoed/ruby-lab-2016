@@ -11,7 +11,7 @@ class MyHash
   end
 
   def []=(key, value)
-    found_entry = @entries.detect() { |entry| entry.key == key }
+    found_entry = @entries.detect { |entry| entry.key == key }
     found_entry == nil ? @entries << HashEntry.new(key, value) : found_entry.value = value
   end
 
@@ -37,6 +37,10 @@ class MyHash
 
   def eql?(hash_to_compare)
     eql_type?(hash_to_compare) && eql_size?(hash_to_compare) && eql_entries?(hash_to_compare)
+  end
+
+  def to_s
+    "[#{@entries.join(', ')}]"
   end
 
   private
