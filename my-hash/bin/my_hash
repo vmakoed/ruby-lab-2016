@@ -2,21 +2,35 @@ $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
 
 require 'my_hash'
 
-hash_object = MyHash.new
+separator = '--------------------'
 
-hash_object[:apple] = 5
-hash_object[:orange] = 3
-puts hash_object[:apple]
-puts hash_object[:orange]
+hash_a = MyHash.new
+hash_a[:apple] = 1
+hash_a[:banana] = 2
+hash_a[:cherry] = 3
+puts 'hash_a created'
+puts "hash_a[:apple] = #{hash_a[:apple]}"
+puts "hash_a[:banana] = #{hash_a[:banana]}"
+puts "hash_a[:cherry] = #{hash_a[:cherry]}"
+puts "hash_a keys: #{hash_a.keys}"
+puts "hash_a values: #{hash_a.values}"
+puts "hash_a size: #{hash_a.size}"
+puts separator
 
-puts hash_object.keys
-puts hash_object.values
-puts hash_object.size
+hash_b = MyHash.new
+hash_b[:apple] = 1
+hash_b[:banana] = 2
+hash_b[:cherry] = 3
+puts 'hash_b created'
+puts "hash_b[:apple] = #{hash_b[:apple]}"
+puts "hash_b[:banana] = #{hash_b[:banana]}"
+puts "hash_b[:cherry] = #{hash_b[:cherry]}"
+puts "hash_a equals hash_b?: #{hash_a.eql?(hash_b)}"
+puts separator
 
-another_hash_object = MyHash.new
-another_hash_object[:apple] = 5
-another_hash_object[:orange] = 3
-puts hash_object.eql?(another_hash_object)
-another_hash_object[:orange] = 2
-puts hash_object.eql?(another_hash_object)
-
+hash_a.clear
+puts 'hash_a cleared'
+puts "hash_a size after clearance: #{hash_a.size}"
+puts "hash_a keys after clearance: : #{hash_a.keys}"
+puts "hash_a values after clearance: : #{hash_a.values}"
+puts "hash_a equals hash_b?: #{hash_a.eql?(hash_b)}"
