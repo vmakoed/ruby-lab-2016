@@ -50,7 +50,7 @@ class MyHash
   end
 
   def eql_size?(hash_to_compare)
-    self.size != hash_to_compare.size ? false : true
+    self.size == hash_to_compare.size
   end
 
   def eql_entries?(hash_to_compare)
