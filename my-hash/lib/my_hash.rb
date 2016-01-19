@@ -16,15 +16,11 @@ class MyHash
   end
 
   def keys
-    keys = []
-    @entries.each { |entry| keys << entry.key }
-    "[#{keys.join(', ')}]"
+    @entries.collect { |entry| entry.key }
   end
 
   def values
-    values = []
-    @entries.each { |entry| values << entry.value }
-    "[#{values.join(', ')}]"
+    @entries.collect { |entry| entry.value }
   end
 
   def size

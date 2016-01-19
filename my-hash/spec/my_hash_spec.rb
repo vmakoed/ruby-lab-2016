@@ -43,13 +43,13 @@ describe MyHash do
 
   describe '#keys' do
     it 'returns keys' do
-      expect(hash.keys).to eq('[apple, banana, cherry]')
+      expect(hash.keys).to eq([:apple, :banana, :cherry])
     end
   end
 
   describe '#values' do
     it 'returns values' do
-      expect(hash.values).to eq('[1, 2, 3]')
+      expect(hash.values).to eq([1, 2, 3])
     end
   end
 
@@ -63,8 +63,8 @@ describe MyHash do
     it 'clears hash' do
       hash.clear
       expect(hash.size).to eq(0)
-      expect(hash.keys).to eq('[]')
-      expect(hash.values).to eq('[]')
+      expect(hash.keys).to eq([])
+      expect(hash.values).to eq([])
     end
   end
 
