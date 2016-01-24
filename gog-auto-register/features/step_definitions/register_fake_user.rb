@@ -1,7 +1,9 @@
-require 'faker'
+$LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../../lib"
+
+require 'gog_auto_register'
 
 Given(/^I am on GOG homepage$/) do
-  visit "http://www.gog.com/"
+  visit 'http://www.gog.com/'
 end
 
 Then(/^I will invoke registration form$/) do
@@ -14,12 +16,12 @@ Then(/^I should see registration form$/) do
 end
 
 Then(/^I will fill fake credentials$/) do
-  page.fill_in('register[username]', with: Faker::Internet.user_name)
-  page.fill_in('register[email]', with: Faker::Internet::safe_email)
-  page.fill_in('register[password]', with: Faker::Internet::password)
+  user_info = GOGAutoRegister.create_fake_user
+  page.fill_in('register[username]', with: user_info.username)
+  page.fill_in('register[email]', with: user_info.email)
+  page.fill_in('register[password]', with: user_info.password)
 end
 
 Then(/^I will click the sign up button$/) do
   page.click_button('register_register')
 end
-
