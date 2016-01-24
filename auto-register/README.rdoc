@@ -1,0 +1,5 @@
+= Auto Register
+
+== DESCRIPTION:
+
+Registers a defined amount of users on gog.com. My first attempts at BDD.

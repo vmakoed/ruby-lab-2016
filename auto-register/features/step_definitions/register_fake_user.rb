@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../../lib"
 
-require 'gog_auto_register'
+require 'auto_register'
 
-user_info = GOGAutoRegister.create_fake_user
+user_info = AutoRegister.create_fake_user
 
 Given(/^I am on GOG homepage$/) do
   visit_homepage

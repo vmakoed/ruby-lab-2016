@@ -1,19 +1,10 @@
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../../lib"
 
-require 'gog_auto_register'
+require 'auto_register'
 
 module RegistrationHelper
-  def register_fake_user
-    user_info = RegistrationHelper.generate_user
-    invoke_registration_form
-    switch_to_registration_form
-    fill_in_user_info(user_info)
-    click_confirm_sign_up_button
-    save_user_credentials_to_file(user_info)
-  end
-
   def generate_user
-    GOGAutoRegister.create_fake_user
+    AutoRegister.create_fake_user
   end
 
   def visit_homepage
@@ -40,7 +31,17 @@ module RegistrationHelper
 
   def save_user_credentials_to_file(user_info)
     path_to_file = Pathname(__FILE__).dirname.parent.parent + 'users.csv'
-    GOGAutoRegister.save_user_info_to_csv(user_info, (path_to_file))
+    AutoRegister.save_user_info_to_csv(user_info, (path_to_file))
+  end
+
+  def register_fake_user
+    user_info = generate_user
+    visit_homepage
+    invoke_registration_form
+    switch_to_registration_form
+    fill_in_user_info(user_info)
+    click_confirm_sign_up_button
+    save_user_credentials_to_file(user_info)
   end
 end
 
