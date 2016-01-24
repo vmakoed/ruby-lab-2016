@@ -2,4 +2,4 @@
 
 == DESCRIPTION:
 
-Registers a defined amount of users on gog.com. My first attempts at BDD.
+Registers a defined amount of users on site-maker.com. My first attempts at BDD.
