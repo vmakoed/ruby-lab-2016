@@ -4,7 +4,7 @@ require 'auto_register'
 
 user_info = AutoRegister.create_fake_user
 
-Given(/^I am on GOG homepage$/) do
+Given(/^I am on SiteMaker homepage$/) do
   visit_homepage
 end
 
@@ -13,8 +13,7 @@ Then(/^I will invoke registration form$/) do
 end
 
 Then(/^I should see registration form$/) do
-  switch_to_registration_form
-  page.should have_css('form[name="register"]')
+  page.should have_css('input[id="user_name"]')
 end
 
 Then(/^I will fill fake credentials$/) do
@@ -23,6 +22,10 @@ end
 
 Then(/^I will click the sign up button$/) do
   click_confirm_sign_up_button
+end
+
+Then(/^I will log out$/) do
+  log_out
 end
 
 Then(/^I will save user credentials to a file$/) do
