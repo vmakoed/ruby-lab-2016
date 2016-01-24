@@ -8,25 +8,26 @@ module RegistrationHelper
   end
 
   def visit_homepage
-    visit 'http://www.gog.com/'
+    visit 'http://site-maker.herokuapp.com/'
   end
 
   def invoke_registration_form
-    find('.top-nav-login-btn--signup').click
-  end
-
-  def switch_to_registration_form
-    page.driver.browser.switch_to.frame 'GalaxyAccountsFrame'
+    page.click_link('Sign up')
   end
 
   def fill_in_user_info(user_info)
-    page.fill_in('register[username]', with: user_info.username)
-    page.fill_in('register[email]', with: user_info.email)
-    page.fill_in('register[password]', with: user_info.password)
+    page.fill_in('user_name', with: user_info.username)
+    page.fill_in('user_email', with: user_info.email)
+    page.fill_in('user_password', with: user_info.password)
+    page.fill_in('user_password_confirmation', with: user_info.password)
   end
 
   def click_confirm_sign_up_button
-    page.click_button('register_register')
+    page.click_button('Sign up')
+  end
+
+  def log_out
+    page.click_link('Log out')
   end
 
   def save_user_credentials_to_file(user_info)
@@ -38,9 +39,9 @@ module RegistrationHelper
     user_info = generate_user
     visit_homepage
     invoke_registration_form
-    switch_to_registration_form
     fill_in_user_info(user_info)
     click_confirm_sign_up_button
+    log_out
     save_user_credentials_to_file(user_info)
   end
 end
