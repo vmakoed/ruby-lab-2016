@@ -3,3 +3,7 @@
 == DESCRIPTION:
 
 Registers a defined amount of users on http://site-maker.herokuapp.com/. My first attempts at BDD.
+
+As one can tell from commits history, the project's original goal was to generate gog.com users. As it turned out, that
+website is reCaptcha-protected against multiple registration attempts in a row from one IP. So the target was changed
+to site-maker.
