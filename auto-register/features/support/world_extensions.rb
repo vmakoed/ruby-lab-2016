@@ -3,8 +3,8 @@ $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../../lib"
 require 'auto_register'
 
 module RegistrationHelper
-  def generate_user
-    AutoRegister.create_fake_user
+  def generate_user(user_id)
+    AutoRegister.create_fake_user(user_id)
   end
 
   def visit_homepage
@@ -35,8 +35,8 @@ module RegistrationHelper
     AutoRegister.save_user_info_to_csv(user_info, (path_to_file))
   end
 
-  def register_fake_user
-    user_info = generate_user
+  def register_fake_user(user_id)
+    user_info = generate_user(user_id)
     visit_homepage
     invoke_registration_form
     fill_in_user_info(user_info)
